@@ -25,7 +25,7 @@ public class Dashboard extends SubSystem {
         TelemetryPacket packet = new TelemetryPacket(true);
 
         packet.fieldOverlay()
-                .drawImage("/dash/baseBasic.jpg", config.robotX, config.robotY, 48, 48, Math.toRadians(config.robotHeading), 24, 24, false);
+                .drawImage("/dash/baseBasic.jpg", config.robotX, config.robotY, 48, 48, Math.toRadians(config.robotHeading  ), 24, 24, false);
 
 
         config.dashboard.sendTelemetryPacket(packet);
