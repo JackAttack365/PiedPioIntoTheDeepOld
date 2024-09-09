@@ -19,7 +19,7 @@ public class MeepMeepTesting {
         drive.runAction(square(drive.getDrive()));
 
         //TODO update field for new season
-        meepMeep.setBackground(MeepMeep.Background.)
+        meepMeep.setBackground(MeepMeep.Background.FIELD_INTO_THE_DEEP_JUICE_DARK)
                 .setDarkMode(true)
                 .setBackgroundAlpha(0.95f)
                 .addEntity(drive)
