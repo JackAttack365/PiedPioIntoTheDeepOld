@@ -1,10 +1,15 @@
 package org.firstinspires.ftc.teamcode.subsystem;
 
+import androidx.annotation.NonNull;
+
+import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
+import com.acmerobotics.roadrunner.Action;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.Config;
+import org.piedmontpioneers.intothedeep.enums.Color;
 
 public class Lift extends SubSystem {
     private DcMotor leftLift, rightLift;
@@ -69,9 +74,5 @@ public class Lift extends SubSystem {
         previousError = error;
 
         config.telemetry.addData("Lift Height", leftLift.getCurrentPosition());
-    }
-
-    private boolean isNotNearToStop() {
-        return ((LIFT_BOTTOM_STOP + 300) <= leftLift.getCurrentPosition()) && (leftLift.getCurrentPosition() <= (LIFT_TOP_STOP -  300));
     }
 }

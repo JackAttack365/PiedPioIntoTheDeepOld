@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+import org.firstinspires.ftc.teamcode.enums.Alliance;
 import org.firstinspires.ftc.teamcode.enums.GameStage;
 
 // Config stores everything any of our SubSystems need to function, stores GamePads, Telemetry, HardwareMap,
@@ -23,6 +24,8 @@ public class Config {
     public FtcDashboard dashboard;
 
     public GameStage stage;
+
+    public Alliance alliance;
 
     // Stores the hardwareMap names as constants
     // Drive system

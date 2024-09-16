@@ -59,8 +59,8 @@ public class MeepMeepTesting {
 
         meepMeep.setBackground(MeepMeep.Background.FIELD_INTO_THE_DEEP_JUICE_DARK)
                 .setDarkMode(true)
-                .setBackgroundAlpha(0.95f)
-                //.addEntity(redDrive)
+                .setBackgroundAlpha(0.99f)
+                .addEntity(redDrive)
                 .addEntity(blueDrive)
                 .start();
     }
