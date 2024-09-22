@@ -47,7 +47,7 @@ public class Intake extends SubSystem {
 
     @Override
     public void update() {
-
+        double extendoTargetPos = config.gamePad2.left_stick_y;
     }
 
     public class GetFromTape implements Action {
