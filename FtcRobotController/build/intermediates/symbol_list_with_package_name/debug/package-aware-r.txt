@@ -37,6 +37,7 @@ array app_theme_tokens
 array choice_array_legacy_module
 array lynx_module_options_array
 array networkTypes
+array servo_hub_options_array
 array wifi_direct_channels
 attr actionBarDivider
 attr actionBarItemBackground
@@ -783,6 +784,7 @@ drawable ic_launcher
 drawable ic_warning
 drawable icon_menu
 drawable icon_robotcontroller
+drawable intothedeep_background
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -935,6 +937,8 @@ id edit_query
 id empty_filelist
 id end
 id entire_screen
+id ethernetDeviceIpAddress
+id ethernetDeviceName
 id expand_activities_button
 id expanded_menu
 id explanationText
@@ -983,6 +987,7 @@ id infoButton
 id info_btn
 id inspectionRootLayout
 id invalidQr
+id ipAddressExplanationLabel
 id isDSInstalled
 id isDefaultPassword
 id isDefaultPassword_img
@@ -1244,6 +1249,7 @@ layout digital_device
 layout digital_device_lynx
 layout digital_devices
 layout empty
+layout ethernet_device
 layout feedback
 layout file_info
 layout fragment_wifi_mute
@@ -1570,6 +1576,7 @@ string counted_lynx_module_name
 string counted_lynx_usb_device_name
 string counted_motor_controller_name
 string counted_servo_controller_name
+string counted_servo_hub_name
 string currentApLabel
 string defaultOpModeName
 string defaultPasswordContext
@@ -1604,6 +1611,7 @@ string edit_analog_input_devices_activity_lynx
 string edit_controller
 string edit_digital_devices_activity
 string edit_digital_devices_activity_lynx
+string edit_ethernet_devices_activity
 string edit_i2c_devices_activity
 string edit_lynx_module_controller_activity
 string edit_lynx_usb_device_activity
@@ -1648,6 +1656,7 @@ string input_name_hint
 string input_name_label
 string inspection_activity
 string inspection_mode_menu_item
+string ip_address_prompt_text
 string launch_wifi_settings
 string led_description
 string library_zxingandroidembedded_author
@@ -1925,6 +1934,8 @@ string restart_robot_menu_item
 string restore_settings
 string rev_20_hd_hex_name
 string rev_40_hd_hex_name
+string rev_9_axis_imu_description
+string rev_9_axis_imu_name
 string rev_blinkin_description
 string rev_blinkin_name
 string rev_color_sensor_v3_description
@@ -1986,6 +1997,8 @@ string setWifiChannelFailure
 string setWifiChannelSuccess
 string settings_activity
 string settings_menu_item
+string sparkfun_led_stick_description
+string sparkfun_led_stick_name
 string sparkfun_optical_odometry_description
 string sparkfun_optical_odometry_name
 string standard_servo_description

@@ -36,6 +36,7 @@ int array app_theme_tokens 0x0
 int array choice_array_legacy_module 0x0
 int array lynx_module_options_array 0x0
 int array networkTypes 0x0
+int array servo_hub_options_array 0x0
 int array wifi_direct_channels 0x0
 int attr actionBarDivider 0x0
 int attr actionBarItemBackground 0x0
@@ -782,6 +783,7 @@ int drawable ic_launcher 0x0
 int drawable ic_warning 0x0
 int drawable icon_menu 0x0
 int drawable icon_robotcontroller 0x0
+int drawable intothedeep_background 0x0
 int drawable notification_action_background 0x0
 int drawable notification_bg 0x0
 int drawable notification_bg_low 0x0
@@ -934,6 +936,8 @@ int id edit_query 0x0
 int id empty_filelist 0x0
 int id end 0x0
 int id entire_screen 0x0
+int id ethernetDeviceIpAddress 0x0
+int id ethernetDeviceName 0x0
 int id expand_activities_button 0x0
 int id expanded_menu 0x0
 int id explanationText 0x0
@@ -982,6 +986,7 @@ int id infoButton 0x0
 int id info_btn 0x0
 int id inspectionRootLayout 0x0
 int id invalidQr 0x0
+int id ipAddressExplanationLabel 0x0
 int id isDSInstalled 0x0
 int id isDefaultPassword 0x0
 int id isDefaultPassword_img 0x0
@@ -1243,6 +1248,7 @@ int layout digital_device 0x0
 int layout digital_device_lynx 0x0
 int layout digital_devices 0x0
 int layout empty 0x0
+int layout ethernet_device 0x0
 int layout feedback 0x0
 int layout file_info 0x0
 int layout fragment_wifi_mute 0x0
@@ -1569,6 +1575,7 @@ int string counted_lynx_module_name 0x0
 int string counted_lynx_usb_device_name 0x0
 int string counted_motor_controller_name 0x0
 int string counted_servo_controller_name 0x0
+int string counted_servo_hub_name 0x0
 int string currentApLabel 0x0
 int string defaultOpModeName 0x0
 int string defaultPasswordContext 0x0
@@ -1603,6 +1610,7 @@ int string edit_analog_input_devices_activity_lynx 0x0
 int string edit_controller 0x0
 int string edit_digital_devices_activity 0x0
 int string edit_digital_devices_activity_lynx 0x0
+int string edit_ethernet_devices_activity 0x0
 int string edit_i2c_devices_activity 0x0
 int string edit_lynx_module_controller_activity 0x0
 int string edit_lynx_usb_device_activity 0x0
@@ -1647,6 +1655,7 @@ int string input_name_hint 0x0
 int string input_name_label 0x0
 int string inspection_activity 0x0
 int string inspection_mode_menu_item 0x0
+int string ip_address_prompt_text 0x0
 int string launch_wifi_settings 0x0
 int string led_description 0x0
 int string library_zxingandroidembedded_author 0x0
@@ -1924,6 +1933,8 @@ int string restart_robot_menu_item 0x0
 int string restore_settings 0x0
 int string rev_20_hd_hex_name 0x0
 int string rev_40_hd_hex_name 0x0
+int string rev_9_axis_imu_description 0x0
+int string rev_9_axis_imu_name 0x0
 int string rev_blinkin_description 0x0
 int string rev_blinkin_name 0x0
 int string rev_color_sensor_v3_description 0x0
@@ -1985,6 +1996,8 @@ int string setWifiChannelFailure 0x0
 int string setWifiChannelSuccess 0x0
 int string settings_activity 0x0
 int string settings_menu_item 0x0
+int string sparkfun_led_stick_description 0x0
+int string sparkfun_led_stick_name 0x0
 int string sparkfun_optical_odometry_description 0x0
 int string sparkfun_optical_odometry_name 0x0
 int string standard_servo_description 0x0

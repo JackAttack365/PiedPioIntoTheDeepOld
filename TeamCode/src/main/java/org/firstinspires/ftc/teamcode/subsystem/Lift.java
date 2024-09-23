@@ -5,29 +5,23 @@ import androidx.annotation.NonNull;
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.acmerobotics.roadrunner.Action;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.Config;
+import org.firstinspires.ftc.teamcode.enums.LiftPosition;
 import org.piedmontpioneers.intothedeep.enums.Color;
 
 public class Lift extends SubSystem {
-    private DcMotor leftLift, rightLift;
+    private DcMotor lift;
 
-    double Kp = 1;
-    double Ki = 0;
-    double Kd = 0;
+    private final int LIFT_TOP_BASKET = 1000;
+    private final int LIFT_BOTTOM_BASKET = 500;
 
-    double targetPosition = 0;
-    double currentPosition = 0;
-    double error = 0;
+    private final int LIFT_TOP_BAR = 700;
+    private final int LIFT_BOTTOM_BAR = 300;
 
-    double integral = 0;
-    double previousError = 0;
+    private final int LIFT_BOTTOM = 100;
 
-    private final int LIFT_TOP_STOP = 1000; // TODO tune using LiftTuner
-
-    private final int LIFT_BOTTOM_STOP = 100;
+    private LiftPosition position;
 
     public Lift(Config config, boolean isOneController) {
         super(config, isOneController);
@@ -39,40 +33,39 @@ public class Lift extends SubSystem {
 
     @Override
     public void init() {
-        leftLift = config.hardwareMap.get(DcMotor.class, Config.LEFT_LIFT_MOTOR);
-        rightLift = config.hardwareMap.get(DcMotor.class, Config.RIGHT_LIFT_MOTOR);
+        lift = config.hardwareMap.get(DcMotor.class, Config.LEFT_LIFT_MOTOR);
 
-        leftLift.setDirection(DcMotor.Direction.FORWARD);
-        rightLift.setDirection(DcMotor.Direction.REVERSE);
+        lift.setDirection(DcMotor.Direction.FORWARD);
 
-        leftLift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        rightLift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        leftLift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        rightLift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        lift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        position = LiftPosition.BOTTOM;
     }
 
     @Override
     public void update() {
-        targetPosition += (config.gamePad2.right_trigger) * 10;
+        if (config.gamePad2.right_trigger >= 0.1 ) {
+            switch (position) {
+                case BOTTOM:
+                    lift.setTargetPosition(LIFT_TOP_BASKET);
+                    position = LiftPosition.TOP_BASKET;
+                    break;
+                case BOTTOM_BASKET:
+                    lift.setTargetPosition(LIFT_BOTTOM);
+                    position = LiftPosition.BOTTOM;
+                    break;
+                case TOP_BASKET:
+                    lift.setTargetPosition(LIFT_BOTTOM);
+                    position = LiftPosition.BOTTOM;
+                    break;
+            }
+            lift.setPower(config.gamePad2.right_trigger);
+            lift.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        }
 
-        targetPosition = Math.max(LIFT_BOTTOM_STOP, Math.min(targetPosition, LIFT_TOP_STOP));
-
-        currentPosition = leftLift.getCurrentPosition();
-        error = targetPosition - currentPosition;
-
-        integral += error;  // Accumulate error over time
-        double derivative = error - previousError;  // Change in error
-
-        // Calculate PID output
-        double power = (Kp * error) + (Ki * integral) + (Kd * derivative);
-
-        // Set motor power
-        leftLift.setPower(power);
-        rightLift.setPower(power);
-
-        previousError = error;
-
-        config.telemetry.addData("Lift Height", leftLift.getCurrentPosition());
+        config.telemetry.addData("Lift Position", lift.getCurrentPosition());
+        config.telemetry.addData("Lift Busy?", lift.isBusy());
     }
 }
